@@ -1,0 +1,10 @@
+<header class="flex items-center justify-between w-full shadow-lg px-10">
+    <img class="w-[150px]" [src]="companyLogo" alt="">
+    <ul class="flex cursor-pointer">
+        <li class="p-4 m-4">{{online?'Online 🟢':'Offline 🔴'}}</li>
+        <ng-container *ngIf="isLoggedIn">
+            <li class="p-4 m-4" *ngFor="let list of headerList" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"  [routerLink]="list.routeTo" (isActiveChange)="onRouterLinkActive($event,list)">{{list.displayName}}</li>
+        </ng-container>
+        <li class="p-4 m-4"><button (click)="onLogin()">{{isLoggedIn?"Logout":"Login"}}</button></li>
+    </ul>
+</header>

@@ -1,0 +1,28 @@
+<section class="mx-auto w-6/12">
+    <div class="border-gray-300 border-b-4 p-5">
+        <h1 class="text-2xl text-gray-700 my-3">{{ restaurantDetails?.name }} <span class="font-bold">{{"("+
+                restaurantDetails?.avgRating +")" }}</span></h1>
+        <h3>{{ restaurantDetails?.city }} : {{ restaurantDetails?.areaName }}</h3>
+        <p class="text-xs text-red-600">{{ restaurantDetails?.availabilityServiceabilityMessage }}</p>
+    </div>
+
+    <div class="">
+        <div class="" *ngFor="let category of restaurantMenu">
+            <div class="flex justify-between cursor-pointer items-center bg-gray-100 p-3 my-2"
+                (click)="toggleCategorySelection(category)">
+                <span>{{category.card.card.title}}</span>
+                <svg class="w-3 h-3  shrink-0" [ngClass]="category.isSelected ? 'rotate-180':'rotate-0'" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 5 5 1 1 5" />
+                </svg>
+            </div>
+            <ng-container *ngIf="category.isSelected">
+                <div class="content px-5 border-gray-200 border-b-2"
+                    *ngFor=" let menuItems of category.card.card.itemCards"><app-restaurant-menu-items [menuItems]="menuItems"></app-restaurant-menu-items></div>
+            </ng-container>
+
+        </div>
+    </div>
+
+</section>

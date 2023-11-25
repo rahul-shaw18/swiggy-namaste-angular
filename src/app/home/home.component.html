@@ -1,0 +1,11 @@
+<section class="p-5">
+    <div class="head py-10  flex gap-[10px]">
+        <input class="border rounded-[5px] outline-none px-3 h-8 border-gray-200 w-2/12" type="text">
+        <button class="px-5 border rounded-[5px] bg-gray-200 shadow-md"> Search</button>
+    </div>
+    <div class="flex flex-wrap">
+        <ng-container *ngFor="let restaurant  of restaurantList">
+            <app-restaurant [restaurant]="restaurant.info" class="m-5"></app-restaurant>
+        </ng-container>
+    </div>
+</section>

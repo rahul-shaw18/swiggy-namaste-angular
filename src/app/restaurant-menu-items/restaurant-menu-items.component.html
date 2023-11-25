@@ -1,0 +1,16 @@
+<section class="flex gap-10 items-center my-10">
+    <div class="relative">
+        <button
+            class="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 bg-cyan-200 py-1 px-2 rounded-md shadow-md z-50">ADD
+            +</button>
+        <div class="overflow-hidden rounded-md w-[150px]">
+            <img class=" aspect-square bg-cover  hover:scale-125 transition delay-150 duration-300 ease-in-out"
+                [src]="imageUrl" alt="">
+        </div>
+    </div>
+    <div>
+        <p class="font-semibold text-lg my-1">{{menuItems.card.info.name}}</p>
+        <p class="font-medium text-md">₹{{(menuItems.card.info.price)/100}}</p>
+        <p class="font-normal text-md">{{menuItems.card.info.description}}</p>
+    </div>
+</section>
